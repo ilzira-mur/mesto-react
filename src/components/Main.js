@@ -4,7 +4,6 @@ import Card from './Card';
 
 import buttonAdd from '../images/add_button_plus.svg';
 import buttonEdit from '../images/edit_button.svg';
-import avatarEdit from '../images/avatar_edit_pen.svg';
 
 
 function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClick}) {
@@ -28,10 +27,10 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClic
     return (
         <main>
             <section className="profile">
-                <div className="profile__avatar-container"onClick={onEditAvatar}>
-                <img className="profile__avatar" src={userAvatar} alt="Аватар"/>
-                <img className="profile__avatar-edit" src={avatarEdit} alt="Ручка"/>
-                </div>
+                <button className="profile__avatar-container" onClick={onEditAvatar}>
+                    <div className="profile__avatar-edit"></div>
+                    <img className="profile__avatar" src={userAvatar} alt="Аватар"/>
+                </button>
                 <div className="info">
                     <h1 className="info__name">{userName}</h1>
                     <button type="button" className="button button_type_edit" onClick={onEditProfile}><img className="info__button-img" src={buttonEdit} alt="Кнопка редактирования"/></button>

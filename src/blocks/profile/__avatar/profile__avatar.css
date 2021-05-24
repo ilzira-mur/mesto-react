@@ -1,10 +1,7 @@
-@import url(../__avatar-edit/profile__avatar-edit.css);
-
 .profile__avatar {
     border-radius: 50%;
     width: 120px;
     height: 120px;
-    margin-right: 26px;
     background-size: cover;
     opacity: 1;
   }
@@ -14,12 +11,6 @@
     transition: 0.1s linear;
     cursor: pointer;
   }
-  
-  .profile__avatar:hover ~ .profile__avatar-edit {
-    opacity: 1;
-    cursor: pointer;
-  }
-  
   
   @media screen and (max-width: 767px) {
     .profile__avatar {
