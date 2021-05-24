@@ -4,7 +4,7 @@ import logo from '../images/logo.svg';
 function Header() {
     return (
         <header className="header">
-            <a className="link" href="../../public/index.html" target="_self">
+            <a className="link" href="/#" target="_self">
             <img className="header__logo" src={logo} alt="Логотип"/>
             </a>
         </header>

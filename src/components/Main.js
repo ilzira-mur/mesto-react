@@ -43,7 +43,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClic
                 <ul className="cards" id="cards">
                 {cards.map(card => (<Card key={card._id} card={card} onDeleteCard={onDeleteCard} onCardClick={onCardClick}/>))}
                 </ul>
-        </section>
+            </section>
         </main>
     )
 }
