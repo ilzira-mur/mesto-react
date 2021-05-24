@@ -7,7 +7,7 @@ import buttonEdit from '../images/edit_button.svg';
 import avatarEdit from '../images/avatar_edit_pen.svg';
 
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
+function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClick}) {
     const [userName, setUserName] = React.useState();
     const [userDescription, setUserDescription] = React.useState();
     const [userAvatar, setUserAvatar] = React.useState();
@@ -42,7 +42,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onCardClick}) {
 
             <section>
                 <ul className="cards" id="cards">
-                {cards.map(card => (<Card key={card._id} card={card} onCardClick={onCardClick}/>))}
+                {cards.map(card => (<Card key={card._id} card={card} onDeleteCard={onDeleteCard} onCardClick={onCardClick}/>))}
                 </ul>
         </section>
         </main>
