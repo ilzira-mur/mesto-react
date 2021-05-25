@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../utils/api';
+import api from '../utils/api'
 import Card from './Card';
 
 import buttonAdd from '../images/add_button_plus.svg';
