@@ -9,7 +9,7 @@ class Api {
   _getResponseData(res){
     if (res.ok) {
       return res.json();
-    } else return Promise.reject(`Произошла ошибка - ${res.status}`);
+    } return Promise.reject(`Произошла ошибка - ${res.status}`);
   }
 
     getInitialCards() {

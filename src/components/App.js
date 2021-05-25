@@ -12,7 +12,7 @@ function App() {
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false); 
   const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
   const [isDeleteCardPopupOpen, setDeleteCardPopupOpen] = React.useState(false);
-  const [selectedCard, setSelectedCard] = React.useState(false);
+  const [selectedCard, setSelectedCard] = React.useState({});
 
   const handleEditProfileClick = () => {
       setEditProfilePopupOpen(true);
@@ -30,24 +30,19 @@ function App() {
     setDeleteCardPopupOpen(true);
   };
 
-  const handleCardClick = (card) =>{
-    setSelectedCard(true);
-    setSelectedCard(card);
- }
-
   const closeAllPopups = () => {
       setEditAvatarPopupOpen(false);
       setEditProfilePopupOpen(false);
       setAddPlacePopupOpen(false);
       setDeleteCardPopupOpen(false);
-      setSelectedCard(false);
+      setSelectedCard({});
   };
 
  
   return (
     <div className="page">
       <Header/>
-      <Main onEditProfile={handleEditProfileClick} onEditAvatar={handleEditAvatarClick} onAddPlace={handleAddPlaceClick} onDeleteCard={handleDeleteCardClick} onCardClick={handleCardClick}/>
+      <Main onEditProfile={handleEditProfileClick} onEditAvatar={handleEditAvatarClick} onAddPlace={handleAddPlaceClick} onDeleteCard={handleDeleteCardClick} onCardClick={setSelectedCard}/>
       <Footer/>
       <PopupWithForm title={'Редактировать профиль'} name={'edit'} isOpen={isEditProfilePopupOpen} onClose={closeAllPopups}>
             <input type="text" id ="profilename" name="profilename"  className="popup__input popup__input_type_name" placeholder="Имя" minLength="2" maxLength="40" required/>

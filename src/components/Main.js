@@ -1,5 +1,5 @@
 import React from 'react';
-import api from '../utils/Api';
+import api from '../utils/api';
 import Card from './Card';
 
 import buttonAdd from '../images/add_button_plus.svg';
@@ -9,7 +9,7 @@ import buttonEdit from '../images/edit_button.svg';
 function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClick}) {
     const [userName, setUserName] = React.useState();
     const [userDescription, setUserDescription] = React.useState();
-    const [userAvatar, setUserAvatar] = React.useState();
+    const [userAvatar, setUserAvatar] = React.useState('');
     const [cards, setCards] = React.useState([]);
 
 
