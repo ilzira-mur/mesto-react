@@ -7,8 +7,8 @@ import buttonEdit from '../images/edit_button.svg';
 
 
 function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClick}) {
-    const [userName, setUserName] = React.useState();
-    const [userDescription, setUserDescription] = React.useState();
+    const [userName, setUserName] = React.useState('');
+    const [userDescription, setUserDescription] = React.useState('');
     const [userAvatar, setUserAvatar] = React.useState('');
     const [cards, setCards] = React.useState([]);
 
