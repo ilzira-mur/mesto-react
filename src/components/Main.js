@@ -1,5 +1,4 @@
 import React from 'react';
-import api from '../utils/api'
 import Card from './Card';
 
 import buttonAdd from '../images/add_button_plus.svg';
@@ -8,33 +7,11 @@ import buttonEdit from '../images/edit_button.svg';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
 
-function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClick, onCardLike}) {
-    const [cards, setCards] = React.useState([]);
+function Main({onEditAvatar, onEditProfile, onAddPlace, handleCardDelete, onCardClick, handleCardLike, cards}) {
+    
     const currentUser = React.useContext(CurrentUserContext);
     
-    React.useEffect(()=>{
-        api.getInitialCards()
-        .then((cards) => {
-            setCards(cards);
-          }).catch(err => console.log(`${err}`))
-      }, [])
-
-    function handleCardLike(card) {
-        const isLiked = card.likes.some(i => i._id === currentUser._id);
-        api.changeLikeCardStatus(card._id, !isLiked)
-            .then((newCard) => {
-                setCards((state) => state.map((c) => c._id === card._id ? newCard : c));
-        }).catch(err => console.log(`${err}`))
-    }
-
-    function handleCardDelete(card) {
-        const deleteCards = cards.filter((c) => c._id !== card._id);
-        api.deleteCard(card._id)
-            .then(() => {
-                setCards(deleteCards)
-            }).catch(err => console.log(`${err}`))
-
-    }
+    
 
   
     return (
@@ -54,7 +31,7 @@ function Main({onEditAvatar, onEditProfile, onAddPlace, onDeleteCard, onCardClic
 
             <section>
                 <ul className="cards" id="cards">
-                {cards.map(card => (<Card key={card._id} card={card} onDeleteCard={handleCardDelete} onCardClick={onCardClick} onCardLike={handleCardLike}/>))}
+                {cards.map(card => (<Card key={card._id} card={card} onCardDelete={handleCardDelete} onCardClick={onCardClick} onCardLike={handleCardLike}/>))}
                 </ul>
             </section>
         </main>

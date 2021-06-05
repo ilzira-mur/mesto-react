@@ -1,7 +1,7 @@
 import React from 'react';
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 
-function Card({card, onCardClick, onDeleteCard, onCardLike}) {
+function Card({card, onCardClick, onCardDelete, onCardLike}) {
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = card.owner._id === currentUser._id;
   const cardDeleteButtonClassName = (`card__button-delete ${isOwn ? 'card__button-delete' : 'card__button-delete_hidden'}`);
@@ -17,7 +17,7 @@ function Card({card, onCardClick, onDeleteCard, onCardLike}) {
     }
 
     const handleDeleteClick = () => {
-      onDeleteCard(card);
+      onCardDelete(card);
     }
      
     return (
