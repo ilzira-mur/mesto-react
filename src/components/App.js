@@ -11,7 +11,6 @@ import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import api from '../utils/api';
 
 
-
 function App() {
   const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
   const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false); 
@@ -52,7 +51,6 @@ function handleAddPlaceSubmit(card) {
     }).catch(err => console.log(`${err}`))
 }
 
-
   React.useEffect(()=>{
     api.getUserInfo()
     .then((userInfo) => {
@@ -88,9 +86,7 @@ function handleAddPlaceSubmit(card) {
 
   const handleAddPlaceClick = () => {
       setAddPlacePopupOpen(true);
-  };
-
-  
+  };  
 
   const closeAllPopups = () => {
       setEditAvatarPopupOpen(false);

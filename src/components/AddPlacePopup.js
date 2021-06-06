@@ -2,8 +2,10 @@ import React from 'react';
 import PopupWithForm from './PopupWithForm';
 
 function AddPlacePopup({isOpen, onClose, onAddPlace}) {
+
     const cardNameRef = React.useRef();
     const cardLinkRef = React.useRef();
+
     function handleSubmit(e) {
         e.preventDefault();
         onAddPlace({
@@ -11,6 +13,7 @@ function AddPlacePopup({isOpen, onClose, onAddPlace}) {
           link: cardLinkRef.current.value,
         });
       }
+      
     return (
         <PopupWithForm title={'Новое место'} name={'add-card'} isOpen={isOpen} onClose={onClose} onSubmit={handleSubmit}>
               <input ref={cardNameRef} type="text" id="cardname" name="cardname" className="popup__input popup__input_type_card-name" placeholder="Название" minLength="2" maxLength="30" required/>
