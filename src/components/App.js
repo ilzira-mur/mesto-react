@@ -20,13 +20,16 @@ function App() {
   const [currentUser, setCurrentUser] = React.useState({});
   const [cards, setCards] = React.useState([]);
 
+
   React.useEffect(()=>{
-    api.getInitialCards()
-    .then((cards) => {
+    Promise.all([api.getUserInfo(), api.getInitialCards()])
+    .then(([userInfo, cards]) => {
         setCards(cards);
+        setCurrentUser(userInfo)
       }).catch(err => console.log(`${err}`))
   }, [])
 
+  
 function handleCardLike(card) {
     const isLiked = card.likes.some(i => i._id === currentUser._id);
     api.changeLikeCardStatus(card._id, !isLiked)
@@ -50,13 +53,6 @@ function handleAddPlaceSubmit(card) {
       closeAllPopups();
     }).catch(err => console.log(`${err}`))
 }
-
-  React.useEffect(()=>{
-    api.getUserInfo()
-    .then((userInfo) => {
-      setCurrentUser(userInfo)
-      }).catch(err => console.log(`${err}`))
-  }, [])
 
   const handleUpdateUser = (userInfo) => {
     api.setUserInfo(userInfo)
